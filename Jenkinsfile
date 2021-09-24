@@ -19,7 +19,7 @@ node{
       }  
    
       stage('Publish Docker Image'){
-         withCredentials([string(credentialsId: 'dockerpwd mnforba', variable: 'dockerPWD')]) {
+         withCredentials([string(credentialsId: 'dockerpwdmnforba', variable: 'dockerPWD')]) {
               sh "docker login -u mnforba -p ${dockerPWD}"
          }
         sh "docker push ${dockerImageName}"
