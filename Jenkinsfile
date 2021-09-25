@@ -19,9 +19,7 @@ node{
       }  
    
       stage('Publish Docker Image'){
-           sh "docker login -u mnforba -p ${dockerPWD}"
-         }
-        sh "docker push ${dockerImageName}"
+           sh "docker push ${dockerImageName}"
       }
       
     stage('Run Docker Image'){
