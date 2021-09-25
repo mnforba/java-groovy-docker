@@ -14,7 +14,11 @@ node{
          sh "${mvnHome}/bin/mvn verify; sleep 3"
       }
       
-     stage('Build Docker Image'){         
+     stage('Build Docker Image'){
+         withCredentials([string(credentialsId: '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', variable: 'dockerPWD')])
+       {
+   	       sh "docker login -u mnforba -p $(dockerPWD)"
+		}
            sh "docker build -t ${dockerImageName} ."
       }  
    
